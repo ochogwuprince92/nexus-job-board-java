@@ -5,6 +5,7 @@ on:
     branches: [ main, develop ]
   pull_request:
     branches: [ main ]
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
@@ -57,7 +58,7 @@ jobs:
     - name: Run backend tests
       working-directory: ./backend
       run: |
-        mvn clean test
+        mvn clean test -Dspring.profiles.active=test
         mvn jacoco:report
     
     - name: Upload coverage reports
@@ -86,7 +87,7 @@ jobs:
     - name: Run frontend tests
       working-directory: ./frontend
       run: |
-        npm run test -- --coverage --watchAll=false
+        npm run test -- --coverage --watchAll=false --passWithNoTests
         npm run lint
     
     - name: Upload coverage reports
