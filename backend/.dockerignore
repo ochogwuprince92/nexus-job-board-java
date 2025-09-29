@@ -1,0 +1,25 @@
+# Exclude VCS and IDE files
+.git
+.gitignore
+.idea
+*.iml
+
+# Maven build output
+/target
+/.mvn/
+
+# Logs and temp
+logs/
+*.log
+/tmp/
+/temp/
+
+# Environment files
+.env
+.env.*
+
+# Node leftovers (if any)
+node_modules/
+
+# Docker
+Dockerfile*
